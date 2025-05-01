@@ -1,0 +1,22 @@
+<section id="section-{{forloop.index}}" class="relative">
+  <img src="{{block.image}}" alt="{{block.alt}}" class="absolute inset-0 w-full h-full object-cover">
+  <div class="max-width mx-auto relative">
+    <div class="flex content-mover">
+      <div class="content-block">{{block.text_html}}</div>
+    </div>
+  </div>
+</section>
+
+<!-- Mini Style Sheet -->
+<style>
+#section-{{forloop.index}} .content-mover {
+  min-height: {{block.height}};
+  justify-content: {{block.horizontal-placement}};
+  align-items: {{block.vertical-placement}};
+}
+
+#section-{{forloop.index}} .content-block {
+  width: {{block.width}};
+  text-align: {{block.text-alignment}}
+}
+</style>

@@ -9,3 +9,11 @@
 @tailwind utilities;
 
 /* Custom CSS */
+
+section {
+    padding: 5%;
+}
+
+.max-width {
+    max-width: 1000px;
+}
