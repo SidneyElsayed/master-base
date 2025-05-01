@@ -1,5 +1,5 @@
 <section id="section-{{forloop.index}}" class="px-0">
-  <div class="tickerBanner" data-banner-speed="50">
+  <div class="tickerBanner" data-banner-speed="{{block.banner-style.speed}}">
     {% for message in block.banner-message %}
     <!-- URL OPTION - if you don't want these clickable, remove URL in front matter -->
       <a href="{{message.url}}" class="text-block">{{message.text}}</a>
@@ -14,7 +14,12 @@
   --bannerBlockTime: 2s;
 overflow-X: hidden;
 display: flex;
+{% if block.banner-style.direction == "English" %}
+/* LTR being shorthand for left-to-right */
 flex-direction: row;
+{% else %}
+flex-direction: row-reverse;
+{% endif %}
 /* prevents gap - if text left to right then out 'row-reverse' instead of row */
 text-align: center;
 }
@@ -37,10 +42,17 @@ text-align: center;
 } 
 
 /* change this for text flow direction */
+{% if block.banner-style.direction == "English" %}
 @keyframes ticker {
     from {right:0}
     to   {right:var(--bannerBlockLength)}
 }
+{% else %}
+@keyframes ticker {
+    from {left:0}
+    to   {left:var(--bannerBlockLength)}
+}
+{% endif %}
 </style>
 
 <!-- Javascript -->
@@ -53,7 +65,7 @@ tickerBanners.forEach(banner => {
 
   let textBlock = banner.querySelectorAll('.text-block');
 
-  console.log(textBlock[1].offsetWidth)
+  console.log(textBlock[0].offsetWidth)
 
   let bannerBlock = 0;
   textBlock.forEach( block => {
