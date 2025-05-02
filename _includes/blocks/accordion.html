@@ -1,0 +1,72 @@
+<section id="section-{{forloop.index}}">
+  <div class="max-width mx-auto">
+    {% if block.section-heading %}
+      <div class="content-block">{{block.section-heading}}</div>
+    {% endif %}
+
+    {% for faq in block.faq-loop %}
+    <div class="question-block faq-text-alignment border border-black {% if forloop.first %} {% else %} border-t-0 {% endif %}">
+      <h3 class="question ">{{faq.question}}</h3>
+    </div>
+    <div class="answer border border-black border-y-0 max-h-0 overflow-hidden">{{faq.answer-html}}</div>
+    {% endfor %}
+
+  </div>
+</section>
+
+<!-- Mini Style Sheet -->
+<style>
+  #section-{{forloop.index}} .content-block {
+    text-align: {{block.heading-text-alignment}};
+  }
+
+  #section-{{forloop.index}} .question-block {
+    text-align: {{block.faq-text-alignment}};
+  }
+
+  #section-{{forloop.index}} .question {
+    
+  }
+
+  #section-{{forloop.index}} .answer {
+    
+  }
+  </style>
+
+<script>
+
+  const expandButtons = document.querySelectorAll(".expandButton");
+  
+  function expand() {
+    
+    console.log(this.previousElementSibling)
+    console.log(this.nextElementSibling)
+  
+  
+    this.nextElementSibling.classList.toggle("hidden")
+  
+  }
+  
+  expandButtons.forEach(button => {
+    button.addEventListener("click",expand);
+  })
+  
+  </script>
+
+
+{% comment %}
+
+<!-- FRONT MATTER REFERENCE -->
+- id: accordion
+  section-heading: This is a heading
+  heading-text-alignment: left
+  faq-text-alignment: left
+  faq-loop:
+    - question: Lorem ipsum dolor sit amet consectetur adipisicing elit?
+      answer-html: Harum tempora rerum debitis! Quo fugiat eius accusamus suscipit dignissimos aspernatur aliquid nisi repellat expedita veritatis saepe, delectus, dolorem consequatur autem fugit.
+    - question: Lorem ipsum dolor sit amet consectetur adipisicing elit?
+      answer-html: Harum tempora rerum debitis! Quo fugiat eius accusamus suscipit dignissimos aspernatur aliquid nisi repellat expedita veritatis saepe, delectus, dolorem consequatur autem fugit.
+    - question: Lorem ipsum dolor sit amet consectetur adipisicing elit?
+      answer-html: Harum tempora rerum debitis! Quo fugiat eius accusamus suscipit dignissimos aspernatur aliquid nisi repellat expedita veritatis saepe, delectus, dolorem consequatur autem fugit.
+
+{% endcomment %}
