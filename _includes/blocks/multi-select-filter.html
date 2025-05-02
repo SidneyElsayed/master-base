@@ -12,7 +12,7 @@
     <!-- Things we're filtering -->
     <div class="grid grid-cols-4 gap-4">
     {% for grid-item in block.grid %}
-    <div class="grid-items All {{grid-item.filter}}">
+    <div class="grid-items All {{grid-item.filter replace:' ','-'}}">
       <div>
         <span>{{grid-item.dish-name}} 
           {% if grid-item.filter contains 'Pescatarian' %} <i class="fa-solid fa-fish"></i> {% endif %} 

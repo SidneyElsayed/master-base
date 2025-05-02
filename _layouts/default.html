@@ -44,7 +44,7 @@
 
   this.classList.add('active')
 
-  let target = this.innerHTML
+  let target = this.innerHTML.replace(' ','-')
 
     gridItems.forEach(image => {
       if (image.classList.contains(target)){
@@ -93,7 +93,7 @@ button.classList.remove('active')
 
 this.classList.add('active')
 
-let target = this.innerHTML
+let target = this.innerHTML.replace(' ','-')
 
 gridItems.forEach(image => {
     image.classList.remove('hidden')
@@ -111,29 +111,50 @@ gridItems.forEach(image => {
         console.log('some of the button are active')
         filterButtons[0].classList.remove('active')
 // and - any menu item that has all of our active buttons
+// gridItems.forEach(image => {
+//     image.classList.remove('hidden')
+// })
+
+// filterButtons.forEach(button => {
+//     if (button.classList.contains('active')) {
+//         let currentFilter = button.innerHTML
+//         console.log(currentFilter)
+//  gridItems.forEach(image => {
+//     if(image.classList.contains(currentFilter)) {
+//         console.log(image.classList, currentFilter,image.classList.contains(currentFilter))
+
+//     } else {
+//         image.classList.add('hidden')
+//     }
+
+//     })
+// }});
+
+
+
+
+// or - if it contwainws any of the filters, the menu item will appear
+
 gridItems.forEach(image => {
-    image.classList.remove('hidden')
+    image.classList.add('hidden')
 })
 
 filterButtons.forEach(button => {
     if (button.classList.contains('active')) {
-        let currentFilter = button.innerHTML
+        let currentFilter = button.innerHTML.replace(' ','-')
         console.log(currentFilter)
  gridItems.forEach(image => {
     if(image.classList.contains(currentFilter)) {
         console.log(image.classList, currentFilter,image.classList.contains(currentFilter))
-
+        
+        image.classList.remove('hidden')
     } else {
-        image.classList.add('hidden')
     }
 
     })
 }});
 
 
-
-
-// or
 
     } else {
         filterButtons[0].classList.add('active')
