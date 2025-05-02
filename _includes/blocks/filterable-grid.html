@@ -1,0 +1,51 @@
+<section id="section-{{forloop.index}}">
+  <div class="max-width mx-auto">
+    <!-- For the filtering -->
+    <div>
+    {% for button in block.filter-buttons %}
+      <span class="filter-buttons">{{button.button-text}}</span>
+    {% endfor %}
+    </div>
+
+    <!-- Things we're filtering -->
+    <div class="grid grid-cols-3 gap-4">
+    {% for grid-item in block.grid %}
+    <div class="grid-items {{grid-item.filter}}">
+      <img src="{{grid-item.image}}" alt="{{grid-item.alt}}">
+      <div>{{grid-item.caption}}</div>
+    </div>
+    {% endfor %}
+    </div>
+
+
+  </div>
+</section>
+
+
+<script>
+
+const filterButtons = document.querySelectorAll('.filter-buttons')
+
+const gridItems = document.querySelectorAll('.grid-items')
+
+console.log(filterButtons,gridItems)
+
+function filterGallery() {
+
+let target = this.innerHTML
+
+  gridItems.forEach(image => {
+    if (image.classList.contains(target)){
+      image.classList.remove('hidden')
+    }
+    else { 
+      image.classList.add('hidden')
+    }
+  } )
+}
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', filterGallery)
+});
+
+</script>
