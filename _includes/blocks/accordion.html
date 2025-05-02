@@ -5,10 +5,22 @@
     {% endif %}
 
     {% for faq in block.faq-loop %}
-    <div class="question-block faq-text-alignment border border-black {% if forloop.first %} {% else %} border-t-0 {% endif %}">
-      <h3 class="question ">{{faq.question}}</h3>
+    <div class="question-block faq-text-alignment border border-black {% if forloop.first %} {% else %} border-t-0 {% endif %} border-b-0">
+      <div class="p-5">
+        <h3 class="relative text-bold">
+          {{faq.question}}
+          <div class="absolute faq-icon w-4 h-4 top-0 right-0">
+            <span class="block border-b border-black w-4"></span>
+            <span class="block border-b border-black w-4 transition-all duration-1000 ease-out rotate-90"></span>
+          </div>
+        </h3>
+      </div>
     </div>
-    <div class="answer border border-black border-y-0 max-h-0 overflow-hidden">{{faq.answer-html}}</div>
+    <div class="text-thin border border-black border-t-0  overflow-hidden transition-all duration-1000" style="max-height: 0px;">
+      <div class="px-5 pb-5 answer-content">
+        {{faq.answer-html}}
+      </div>
+    </div>
     {% endfor %}
 
   </div>
@@ -24,26 +36,32 @@
     text-align: {{block.faq-text-alignment}};
   }
 
-  #section-{{forloop.index}} .question {
-    
-  }
-
-  #section-{{forloop.index}} .answer {
-    
+  #section-{{forloop.index}} .question-block.active .rotate-90 {
+    transform: rotate(0deg);
+    opacity: 0;
   }
   </style>
 
 <script>
 
-  const expandButtons = document.querySelectorAll(".expandButton");
+  const expandButtons = document.querySelectorAll(".question-block");
   
   function expand() {
     
     console.log(this.previousElementSibling)
     console.log(this.nextElementSibling)
+
+    this.classList.toggle('active')
+
+    let targetHeight = this.nextElementSibling.querySelector('.answer-content').clientHeight
   
-  
-    this.nextElementSibling.classList.toggle("hidden")
+  if (this.nextElementSibling.style.maxHeight == '0px'){
+
+    this.nextElementSibling.style.maxHeight = `${targetHeight}px`
+
+  } else {
+    this.nextElementSibling.style.maxHeight = '0px'
+  }
   
   }
   
