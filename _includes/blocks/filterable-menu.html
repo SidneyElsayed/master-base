@@ -13,8 +13,19 @@
     <div class="grid grid-cols-3 gap-4">
     {% for grid-item in block.grid %}
     <div class="grid-items All {{grid-item.filter}}">
-      <img src="{{grid-item.image}}" alt="{{grid-item.alt}}">
-      <div>{{grid-item.caption}}</div>
+      <div>
+        <span>{{grid-item.dish-name}} 
+          {% if grid-item.filter contains 'Pescatarian' %} <i class="fa-solid fa-fish"></i> {% endif %} 
+
+          {% if grid-item.filter contains 'Vegetarian' %} <i class="fa-solid fa-carrot"></i> {% endif %} 
+
+          {% if grid-item.filter contains 'Vegan' %} <i class="fa-solid fa-leaf"></i> {% endif %} 
+
+          {% if grid-item.filter contains 'Gluten free' %} <i class="fa-solid fa-wheat-awn-circle-exclamation"></i> {% endif %} 
+        </span>
+        <span>{{grid-item.price}}</span>
+      </div>
+      <div>{{grid-item.description}}</div>
     </div>
     {% endfor %}
     </div>

@@ -14,6 +14,123 @@
 
     {{content}}
 
+{% for block in page.blocks %}
+{% if block.id == "filterable-grid" %}
+{% assign has-filterable-gallery = true %}
+{% endif %}
+{% endfor %}
+<script>
+
+    {% if has-filterable-gallery %}
+// Filterable Gallery Script Below
+  const gallery = document.querySelectorAll('.filterable-gallery')
+
+    console.log(gallery)
+
+  gallery.forEach(section => {
+
+
+  const filterButtons = section.querySelectorAll('.filter-buttons')
+
+  const gridItems = section.querySelectorAll('.grid-items')
+
+  console.log(filterButtons,gridItems)
+
+  function filterGallery() {
+
+  filterButtons.forEach(button => {
+    button.classList.remove('active')
+  });
+
+  this.classList.add('active')
+
+  let target = this.innerHTML
+
+    gridItems.forEach(image => {
+      if (image.classList.contains(target)){
+        image.classList.remove('hidden')
+      }
+      else { 
+        image.classList.add('hidden')
+      }
+    } )
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', filterGallery)
+  });
+
+});
+
+{% endif %}
+
+
+
+// Multi-Filterable Gallery Script Below
+const multiGallery = document.querySelectorAll('.filterable-gallery-multi')
+
+console.log(gallery)
+
+multiGallery.forEach(section => {
+
+
+const filterButtons = section.querySelectorAll('.filter-buttons')
+
+const gridItems = section.querySelectorAll('.grid-items')
+
+console.log(filterButtons,gridItems)
+
+function multiFilterGallery() {
+
+    console.log(this.innerHTML)
+  if ( this.innerHTML == 'All' ) {
+
+
+filterButtons.forEach(button => {
+button.classList.remove('active')
+});
+
+
+this.classList.add('active')
+
+let target = this.innerHTML
+
+gridItems.forEach(image => {
+    image.classList.remove('hidden')
+})
+} else {
+    let someButtonsActive = false
+    this.classList.toggle('active')
+    for (let i = 1; i < filterButtons.length; i++) {
+        if (filterButtons[i].classList.contains('active')){
+            someButtonsActive = true
+        }
+
+    }
+    if (someButtonsActive) {
+        console.log('some of the button are active')
+        filterButtons[0].classList.remove('active')
+    } else {
+        filterButtons[0].classList.add('active')
+        gridItems.forEach(image => {
+    image.classList.remove('hidden')
+})
+    }
+    console.log('dan was here')
+}
+}
+
+filterButtons.forEach(button => {
+button.addEventListener('click', multiFilterGallery)
+});
+
+});
+
+
+
+
+</script>
+
 </body>
 
 </html>
