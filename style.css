@@ -31,3 +31,16 @@ section {
     background-color: var(--featured-color);
     color: var(--bg-color);
 }
+
+/* Form Styles */
+
+input, textarea {
+    width: 100%;
+    border: 1px solid var(--text-color);
+    padding: .5rem;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    background-color: var(--featured-color);
+}

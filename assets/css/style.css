@@ -499,6 +499,9 @@ video {
 .grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
 }
+.gap-2 {
+    gap: 0.5rem;
+}
 .gap-4 {
     gap: 1rem;
 }
@@ -579,4 +582,32 @@ section {
 .button-featured {
     background-color: var(--featured-color);
     color: var(--bg-color);
+}
+
+/* Form Styles */
+
+input, textarea {
+    width: 100%;
+    border: 1px solid var(--text-color);
+    padding: .5rem;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    background-color: var(--featured-color);
+}
+
+@media (min-width: 768px) {
+    .md\:col-span-2 {
+        grid-column: span 2 / span 2;
+    }
+    .md\:col-span-3 {
+        grid-column: span 3 / span 3;
+    }
+    .md\:col-span-6 {
+        grid-column: span 6 / span 6;
+    }
+    .md\:grid-cols-6 {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
 }
