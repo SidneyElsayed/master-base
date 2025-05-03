@@ -5,5 +5,15 @@ header-links:
     url: /about
   - text: Blog
     url: /blog
+    sublinks:
+    - text: Travel
+      url: /
+    - text: Lifestyle
+      url: /
+    - text: Blog
+      url: /blog
+    - text: Guides 
+      url: /
   - text: Contact
     url: /contact
+    
