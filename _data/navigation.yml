@@ -6,9 +6,9 @@ header-links:
   - text: Blog
     url: /blog
     sublinks:
-    - text: Travel
+    - text: Travel & Lifestyle
       url: /
-    - text: Lifestyle
+    - text: Food
       url: /
     - text: Blog
       url: /blog
