@@ -5,9 +5,23 @@
 {% include site-head.html %}
 
 <body>
+    <!-- Color Scheme Styles -->
+    <style>
+
+        :root,{% for scheme in site.data.style.schemes-colors %}
+            .scheme-{{scheme.scheme_name}} {
+                --bg-color: {{scheme.bg-color}};
+                --bg-secondary-color: {{scheme.bg-secondary-color}};
+                --featured-color: {{scheme.featured-color}};
+                --text-color: {{scheme.text-color}};
+            }
+        {% endfor %}
+    
+    </style>
+
     {% for block in page.blocks %}
     <!-- {{block.id}} -->
-    <div class="scheme-{{block.scheme}}">
+    <div class="scheme-{{block.scheme-color}}">
         {% include /blocks/{{block.id}}.html %}
     </div>
     {% endfor%}
