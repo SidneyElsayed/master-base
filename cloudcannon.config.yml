@@ -37,19 +37,24 @@ collections_config:
         _structures:
         create:
         new_preview_url:
+
+
 _inputs:
   layout:
     type: text
     hidden: true
     cascade: true
-  block-content-html:
+  id:
+    type: text
+    hidden: true
+    cascade: true
+  text-html:
     type: html
     options:
       allow_resize: true
       allow_custom_markup: false
       remove_custom_markup: false
       initial_height: 320
-      italic: true
       format: p h1 h2 h3 a img
       italic: true
       bold: true
@@ -67,8 +72,8 @@ _inputs:
     options:
       allow_empty: true
       values:
-        50vh: half screen min-min
-        75vh: three quater screen min-min
+        50vh: half screen min-height
+        75vh: three quater screen min-height
         90vh: just short of full screen
         100vh: full screen
     cascade: true
@@ -88,18 +93,32 @@ _structures:
     values:
       - label: text block
         value:
-          _id: rich_text_block
-          block-content-html: <h1>Let’s CREATE Something</i> BEAUTIFUL Together</h1>
+          id: rich-text 
+          text-html: Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis deserunt, doloribus incidunt beatae id distinctio consectetur aut fugiat magnam, nam maiores exercitationem reiciendis molestiae tempora quaerat cumque itaque possimus dolore?
+          height: 95vh
+          width: 33%
+          horizontal-placement: center
+          vertical-placement: center
           text-alignment: center
-          scheme:
-            scheme-color: base
-            scheme-padding: small-padding
-            scheme-max-width: L
-          gradient:
-            has-gradient: false
-            color_percent_change_point: 60%
-            direction: 'to top'
-
+          scheme-color: dark
+      - label: banner
+        value:
+          id: banner 
+          text-html: Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis deserunt, doloribus incidunt beatae id distinctio consectetur aut fugiat magnam, nam maiores exercitationem reiciendis molestiae tempora quaerat cumque itaque possimus dolore?
+          height: 95vh
+          width: 33%
+          horizontal-placement: center
+          vertical-placement: center
+          text-alignment: center
+          image: https://picsum.photos/id/1025/600/400
+          alt:
+          overlay:
+            color: 
+            opacity: 
+  
+  
+  
+  
   header_links:
     style: modal
     values:
