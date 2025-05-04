@@ -16,4 +16,33 @@ header-links:
       url: /
   - text: Contact
     url: /contact
-    
+
+footer-links:
+  - heading: What we do
+    links:
+    - text: Travel
+      url: /
+    - text: Lifestyle & Fashion
+      url: /
+    - text: Foodie
+      url: /
+  - heading: About Us
+    links:
+    - text: Mission & Vision
+      url: /
+    - text: History
+      url: /
+    - text: Our People
+      url: /
+    - text: Financial Transparency
+      url: /
+    - text: Privacy Policy
+      url: /
+  - heading: Get Involved
+    links:
+    - text: Volunteer Opportunities
+      url: /
+    - text: Become a Partner
+      url: /
+    - text: Work With Us
+      url: /
