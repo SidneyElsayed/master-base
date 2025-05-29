@@ -42,6 +42,9 @@
 
         </div>
       {% endfor %}
+      <div class="{% if block.button-alignment == 'left' %} text-left {% elsif block.button-alignment == 'center' %} text-center {% elsif block.button-alignment == 'right' %} text-right {% endif %} md:col-span-6">
+        <input type="submit" value="{{block.submit-button-text}}" class="button-featured">
+      </div>
     </form>
   </div>
 </section>
@@ -52,6 +55,8 @@
 
 <!-- FRONT MATTER REFERENCE -->
 - id: form
+  button-alignment: center
+  submit-button-text: Submit
   inputs:
   - type: text
     name: First name

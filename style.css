@@ -30,6 +30,7 @@ section {
 .button-featured {
     background-color: var(--featured-color);
     color: var(--bg-color);
+    display: block;
 }
 
 /* Form Styles */

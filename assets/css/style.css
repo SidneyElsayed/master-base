@@ -505,9 +505,6 @@ video {
 .w-full {
     width: 100%;
 }
-.max-w-\[16rem\] {
-    max-width: 16rem;
-}
 .flex-shrink {
     flex-shrink: 1;
 }
@@ -603,8 +600,14 @@ video {
 .pt-2 {
     padding-top: 0.5rem;
 }
+.text-left {
+    text-align: left;
+}
 .text-center {
     text-align: center;
+}
+.text-right {
+    text-align: right;
 }
 .font-semibold {
     font-weight: 600;
@@ -615,14 +618,14 @@ video {
 .italic {
     font-style: italic;
 }
-.leading-none {
-    line-height: 1;
-}
 .leading-7 {
     line-height: 1.75rem;
 }
 .leading-8 {
     line-height: 2rem;
+}
+.leading-none {
+    line-height: 1;
 }
 .filter {
     filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -668,6 +671,7 @@ section {
 .button-featured {
     background-color: var(--featured-color);
     color: var(--bg-color);
+    display: block;
 }
 
 /* Form Styles */
@@ -702,9 +706,6 @@ input:focus, textarea:focus {
     }
     .md\:col-span-6 {
         grid-column: span 6 / span 6;
-    }
-    .md\:min-w-full {
-        min-width: 100%;
     }
     .md\:grid-cols-6 {
         grid-template-columns: repeat(6, minmax(0, 1fr));
