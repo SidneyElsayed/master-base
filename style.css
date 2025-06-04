@@ -45,3 +45,9 @@ input, textarea {
 input:focus, textarea:focus {
     background-color: var(--featured-color);
 }
+
+
+/* Back to Top Grid */
+.major-funders-grid {
+    grid-template-columns: 12rem 1fr 1fr;
+  }
